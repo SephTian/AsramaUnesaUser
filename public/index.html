@@ -4,12 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="js/swiper.js"></script>
+    <link rel="stylesheet" href="css/swiper.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>AsramaUnesa</title>
+    <title>Asrama Unesa</title>
 </head>
 
-<body>
-    <p class="font-bold text-2xl font-sans">Test 123</p>
+<body class="font-montserrat mx-auto">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full backdrop-blur-sm bg-white/50 z-30">
+        <div class="mx-5">
+            <div class=" h-20 px-5 flex justify-between items-center border-b-2 border-slate-300">
+                <div>
+                    <P class="text-2xl md:text-4xl font-medium">asrama <span
+                            class="text-xs md:text-base font-medium text-unesa">UNESA</span></P>
+
+                </div>
+                <div class="flex justify-between items-center" id="menu">
+                    <p class="font-medium">welcome</p>
+                    <div class="flex items-center gap-2 border-2 ml-3 rounded-full px-1 py-1 cursor-pointer bg-white">
+                        <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path fill="none" stroke="#0b4d70" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                        <div class=" bg-unesa rounded-full px-1 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar END -->
+
+    <section class="md:pt-20 mx-5">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div
+                class="flex justify-center items-center px-10 min-h-[600px] max-h-[800px] md:min-h-0 md:max-h-full md:pt-0">
+                <div>
+                    <h1 class="font-bold text-4xl sm:text-5xl">Welcome to asrama</h1>
+                    <p class="font-medium text-2xl sm:text-3xl mt-2">A place of comfort</p>
+                    <button
+                        class="mt-7 bg-unesa px-7 py-3 font-semibold text-white text-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa hover:bg-white hover:text-unesa hover:transition-all duration-300">Get
+                        Started</button>
+                </div>
+            </div>
+            <!-- bagian seblah kanan -->
+            <div class="px-7 max-w-4xl">
+                <p class=" w-full text-4xl md:mt-5">News for you!</p>
+                <!-- $ SLIDER START -->
+                <div class="swiper rounded-xl mt-3">
+                    <!-- ! Additional required wrapper -->
+                    <div class="swiper-wrapper h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+                        <!-- @ Slides -->
+                        <div class="swiper-slide relative">
+                            <img class="h-full w-full object-cover" src="../asset/image/towerA.jpg" alt="">
+                            <div class="absolute p-5 pb-10 bottom-0 left-0 w-full h-fit bg-black/75">
+                                <h1 class="text-white text-xl font-bold line-clamp-1">Lorem Ipsum</h1>
+                                <p class="text-white text-sm font-light line-clamp-4">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap into electronic
+                                    assdaasdasdasdasdasdasdasdasdasdasd
+                                </p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img class="h-full w-full object-cover" src="../asset/image/towerB.jpg" alt="">
+                            <div class="absolute p-5 pb-10 bottom-0 left-0 w-full h-fit bg-black/75">
+                                <h1 class="text-white text-xl font-bold line-clamp-1">Lorem Ipsum</h1>
+                                <p class="text-white text-sm font-light line-clamp-4">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap into electronic
+                                    assdaasdasdasdasdasdasdasdasdasdasd
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- !  If we need pagination -->
+                    <div class="swiper-pagination ">
+                    </div>
+                </div>
+                <!-- $ SLIDER END -->
+                <br>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
