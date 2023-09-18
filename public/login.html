@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/login.js"></script>
+    <title>Login - Asrama Unesa</title>
+</head>
+
+<body class="font-montserrat mx-auto">
+    <!-- Navbar -->
+    <nav class="w-full backdrop-blur-sm bg-white/50">
+        <div class="h-20 mx-5 px-10 flex justify-between items-center border-b-2 border-slate-300">
+            <a href="index.html">
+                <P class="text-2xl md:text-4xl font-medium">asrama <span
+                        class="text-xs md:text-base font-medium text-unesa">UNESA</span></P>
+            </a>
+            <div class="flex justify-between items-center" id="menu">
+                <p class="font-medium">welcome</p>
+                <a href="login.html">
+                    <div class="flex items-center gap-2 border-2 ml-3 rounded-full px-1 py-1 cursor-pointer bg-white">
+                        <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path fill="none" stroke="#0b4d70" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                        <div class=" bg-unesa rounded-full px-1 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar END -->
+
+    <section class="mx-5">
+        <a class="block my-4 mx-2" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <path fill="#0b4d70"
+                    d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12Z" />
+            </svg>
+        </a>
+        <div class="px-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="h-fit flex justify-center">
+                <div class="w-[500px] border-2 border-slate-500 rounded-2xl overflow-hidden">
+                    <div class="flex justify-center py-4 text-lg font-bold border-b border-b-slate-500">Login or Sign Up
+                    </div>
+
+                    <!-- Bagian Login Form START -->
+                    <div class="p-4">
+                        <form id="login-form">
+                            <p class="my-5 text-lg font-bold">Welcome to Asrama</p>
+                            <div class="border-2 border-slate-500 rounded-xl overflow-hidden">
+                                <div class="p-2 border-b border-b-slate-500">
+                                    <label class="text-xs text-gray-500 " for="username">Student's ID Number</label>
+                                    <input
+                                        class="w-full outline-none text-base text-black placeholder:text-sm font-medium"
+                                        type="text" placeholder="Insert your ID" id="username" required>
+                                </div>
+                                <div class="p-2">
+                                    <label class="text-xs text-gray-500" for="password">Password</label>
+                                    <input class=" w-full outline-none text-black placeholder:text-sm font-medium"
+                                        type="password" placeholder="Insert your Password" id="password" required>
+                                </div>
+                            </div>
+
+                            <a class="mt-6 mb-3 block text-sm font-medium" href="#">
+                                <p class="underline underline-offset-2">Privacy policies</p>
+                            </a>
+
+                            <div class="mb-6 flex items-center gap-1">
+                                <input class="accent-unesa" type="checkbox" id="remember-me">
+                                <label class="text-sm font-medium" for="remember-me">Remember
+                                    me</label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full text-center bg-unesa py-2 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa">Log
+                                In</button>
+                        </form>
+                        <button type="submit" id="register-btn"
+                            class="mt-3 w-full text-center bg-white py-2 font-bold text-unesa text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa">
+                            Don't have an account?
+                        </button>
+                    </div>
+                    <!-- Bagian Login Form END -->
+                </div>
+            </div>
+            <div class="hidden md:flex justify-center">
+                <img class="object-cover h-[500px] -scale-x-100" src="../asset/image/sapiens2.png" alt="">
+            </div>
+        </div>
+    </section>
+    <br>
+</body>
+
+</html>
