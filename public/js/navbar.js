@@ -8,9 +8,6 @@ OPEN_MENU.addEventListener("click", (e) => {
 
 CLOSE_MENU.addEventListener("click", (e) => {
   MENU.style.width = "0px";
-  if (!OPEN_MENU.contains(e.target) && !MENU.contains(e.target)) {
-    MENU.style.width = "0px";
-  }
 });
 
 document.addEventListener("click", function (e) {

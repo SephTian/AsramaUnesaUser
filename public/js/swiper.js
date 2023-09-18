@@ -1,8 +1,8 @@
 // init Swiper:
 new Swiper(".swiper", {
   // Optional parameters
-  //   autoplay: true,
-  //   delay: 2000,
+  autoplay: true,
+  delay: 2000,
   disableOnInteraction: false,
   direction: "horizontal",
   loop: true,
