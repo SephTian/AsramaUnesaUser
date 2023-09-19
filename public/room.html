@@ -12,23 +12,15 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
 
-    <!-- Swiper JS -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script type="module" src="js/swiper.js"></script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/swiper.css" />
-
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/news.js"></script>
+    <script type="module" src="js/room.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>News - Asrama Unesa</title>
+    <title>Room - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
-    <!-- Navbar -->
+    <!-- Navbar START -->
     <nav class="md:mx-5 bg-white border-b-2 border-slate-300">
         <div class="container wrapper h-20 flex justify-between items-center ">
             <a href="news.html">
@@ -101,50 +93,29 @@
     </nav>
     <!-- Navbar END -->
 
-    <!-- Bagian Slider atau Carousel START -->
+    <!-- Bagian Back Btn dan Filter START -->
     <section class="container wrapper">
-        <p class=" w-full text-xl sm:text-3xl font-bold text-black my-5 text-start">Where are you planning to stay?
-        </p>
-        <!-- $ SLIDER START -->
-        <div class="swiper rounded-s-xl rounded-se-xl rounded-ee-[150px]" id="swiper">
-            <!-- ! Additional required wrapper -->
-            <div class="swiper-wrapper h-[200px] sm:h-[300px] md:h-[400px]" id="swiper-news">
-                <!-- @ Slides -->
-                <div class="swiper-slide">
-                    <img class="h-full w-full object-fill" src="../asset/image/unesa-news.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img class="h-full w-full object-fill" src="../asset/image/towerB.jpg" alt="">
-                </div>
-            </div>
-            <!-- !  If we need pagination -->
-            <div class="swiper-pagination">
-            </div>
+        <div class="block my-4 w-fit" href="news.html" id="back-news-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+                <path fill="#0b4d70"
+                    d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12Z" />
+            </svg>
         </div>
-        <!-- $ SLIDER END -->
-    </section>
-    <!-- Bagian Slider atau Carousel END -->
-
-    <!-- Bagian List Building START -->
-    <section class="container wrapper mt-10 ">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6" id="building-list">
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
+        <div class="flex justify-between px-5">
+            <div class="font-semibold text-3xl" id="building-name">Tower A</div>
+            <select class="px-4 border border-slate-500 rounded-lg font-medium" name="floor-filter" id="floor-filter">
+                <option value="" selected>All</option>
+            </select>
         </div>
     </section>
-    <!-- Bagian List Building END -->
-    <br>
-    <br>
+    <!-- Bagian Back Btn dan Filter END -->
+
+    <!-- Bagian Floor And Room START -->
+    <section class="container wrapper mt-4">
+        <div class="px-5 grid grid-cols-1 gap-3" id="floor-list">
+        </div>
+    </section>
+    <!-- Bagian Floor And Room END -->
 </body>
 
 </html>
