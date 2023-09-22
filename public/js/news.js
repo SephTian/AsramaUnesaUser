@@ -1,41 +1,16 @@
 import { fetchApi } from "./utility/fetch.js";
 
-const name = "asep";
-const sid = "c14200200";
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+console.log(user_data);
+console.log(window.sessionStorage.getItem("token"));
 
 const NEWS_LIST = document.querySelector("#swiper-news");
 const BUILDING_LIST = document.querySelector("#building-list");
 
 // ? Fetch dengan Parameter Gender Disini
-const BUILDING_DATA = [
-  {
-    id: 1,
-    building_name: "Flashpoint",
-    building_gender: "Perempuan",
-  },
-  {
-    id: 2,
-    building_name: "Edgewire",
-    building_gender: "Pria",
-  },
-  {
-    id: 3,
-    building_name: "Plambee",
-    building_gender: "Pria",
-  },
-  {
-    id: 4,
-    building_name: "Zoomlounge",
-    building_gender: "Pria",
-  },
-  {
-    id: 5,
-    building_name: "Thoughtstormasdasdsad",
-    building_gender: "Pria",
-  },
-];
+const BUILDING_DATA = await fetchApi(`getAsramaBuildingsWithFilters?gender_id=${user_data.user_gender}`);
 
-showBuilding(BUILDING_DATA);
+showBuilding(BUILDING_DATA.Buildings);
 
 function showBuilding(data = []) {
   BUILDING_LIST.textContent = "";
@@ -52,18 +27,22 @@ function showBuilding(data = []) {
 
     BUILDING_DIV.addEventListener("click", () => {
       let booking_data = {
-        user_name: name,
-        user_id: sid,
-        building_id: item.id,
+        user_name: user_data.user_name,
+        user_id: user_data.user_id,
+        building_id: item.building_id,
         building_name: item.building_name,
         building_gender: item.building_gender,
         room_id: "",
         room_name: "",
+        room_price: "",
         check_in: "",
         check_out: "",
+        nominal: "",
+        ppn: "",
+        booking_notes: "",
       };
       window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
-      window.location.href = `room.html?bname=${item.building_name}&gender=${item.building_gender}`;
+      window.location.href = `room.html`;
     });
 
     BUILDING_LIST.appendChild(BUILDING_DIV);

@@ -4,27 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
 
-    <!-- Swiper JS -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script type="module" src="js/swiper.js"></script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/swiper.css" />
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/news.js"></script>
+    <script type="module" src="js/payment_due.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>News - Asrama Unesa</title>
+    <title>Due - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
@@ -101,51 +94,49 @@
     </nav>
     <!-- Navbar END -->
 
-    <!-- Bagian Slider atau Carousel START -->
     <section class="container wrapper">
-        <div class="px-5">
-            <p class=" w-full text-xl sm:text-3xl font-bold text-black my-5 text-start">Where are you planning to stay?
-            </p>
-            <!-- $ SLIDER START -->
-            <div class="swiper rounded-s-xl rounded-se-xl rounded-ee-[150px]" id="swiper">
-                <!-- ! Additional required wrapper -->
-                <div class="swiper-wrapper h-[200px] sm:h-[300px] md:h-[400px]" id="swiper-news">
-                    <!-- @ Slides -->
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/unesa-news.jpg" alt="">
+        <a class="my-4 block w-fit cursor-pointer" href="history.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+                <path fill="#0b4d70"
+                    d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12Z" />
+            </svg>
+        </a>
+
+        <div class="flex flex-col items-center">
+            <p class="text-2xl font-bold">Please Complete Payment in</p>
+            <p class="my-4 text-3xl text-orange-500 font-bold">23:00:00</p>
+            <p class="text-2xl font-medium">Payment deadline</p>
+            <p class="my-2 text-2xl font-bold">Wednesday, 5 April 2023</p>
+            <div class="w-[28rem]">
+                <div class="h-fit w-full border-2 border-slate-500 rounded-2xl overflow-hidden">
+                    <div class="p-5 flex items-center gap-2 text-lg font-bold border-b border-b-slate-500">
+                        <img class="h-5" src="../asset/image/bca-logo.png" alt="">
+                        <p class="text-sm font-bold line-clamp-1">Bank Central Asia Virtual Account</p>
                     </div>
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/towerB.jpg" alt="">
+                    <div class="p-5">
+                        <p class="text-base font-medium">Virtual Account Number</p>
+                        <p class="text-2xl font-bold">8082192810827921</p>
+                        <p class="mt-2 text-base font-medium">Total Payment</p>
+                        <p class="text-2xl font-bold">IDR 350.000</p>
+
                     </div>
                 </div>
-                <!-- !  If we need pagination -->
-                <div class="swiper-pagination">
-                </div>
-            </div>
-            <!-- $ SLIDER END -->
-        </div>
-    </section>
-    <!-- Bagian Slider atau Carousel END -->
-
-    <!-- Bagian List Building START -->
-    <section class="container wrapper mt-10">
-        <div class="px-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6" id="building-list">
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
+                <div class="px-5">
+                    <p class="my-4 font-base font-medium">How to pay from BCA Virtual Account :</p>
+                    <p class="text-sm font-medium">Lorem ipsum dolor sit amet consectetur. Sagittis mattis amet non
+                        vitae.
+                        Tortor risus nunc diam
+                        consectetur malesuada vel. Arcu varius non orci facilisi elementum libero justo amet lorem. Ut
+                        imperdiet id ut eu ultricies sit. Libero tristique eu ut facilisis mauris sed urna. Sit laoreet
+                        aliquam pharetra fringilla pretium est.
+                        Eget lectus adipiscing enim et sed mattis etiam id. Mi in duis velit volutpat odio molestie
+                        euismod lectus cras.
+                    </p>
                 </div>
             </div>
         </div>
+
     </section>
-    <!-- Bagian List Building END -->
-    <br>
     <br>
 </body>
 

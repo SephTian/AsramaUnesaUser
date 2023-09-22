@@ -3,7 +3,7 @@ import { fetchApi } from "./utility/fetch.js";
 let booking_data = JSON.parse(window.sessionStorage.getItem("booking-data"));
 const FLOOR_FILTER = document.querySelector("#floor-filter");
 const FLOOR_LIST = document.querySelector("#floor-list");
-console.log(booking_data.building_gender);
+console.log(booking_data);
 
 // Balik ke Halaman News
 document.querySelector("#back-news-btn").addEventListener("click", () => {
@@ -14,109 +14,32 @@ document.querySelector("#back-news-btn").addEventListener("click", () => {
 //ASSIGN BUILDING NAME
 document.querySelector("#building-name").textContent = booking_data.building_name;
 
-// ? Fetch dengan Parameter Gender Disini
-const ROOM_DATA = [
-  {
-    room_id: 1,
-    room_name: "BYN",
-    current: 3,
-    capacity: 5,
-    floor: "1",
-    floor_name: "1",
-  },
-  {
-    room_id: 2,
-    room_name: "IFN",
-    current: 3,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-  {
-    room_id: 3,
-    room_name: "KTX",
-    current: 1,
-    capacity: 5,
-    floor: "3",
-    floor_name: "3",
-  },
-  {
-    room_id: 4,
-    room_name: "RIB",
-    current: 2,
-    capacity: 5,
-    floor: "3",
-    floor_name: "3",
-  },
-  {
-    room_id: 5,
-    room_name: "YQR",
-    current: 3,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-  {
-    room_id: 6,
-    room_name: "NSN",
-    current: 3,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-  {
-    room_id: 7,
-    room_name: "KMC",
-    current: 2,
-    capacity: 5,
-    floor: "1",
-    floor_name: "1",
-  },
-  {
-    room_id: 8,
-    room_name: "XTR",
-    current: 3,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-  {
-    room_id: 9,
-    room_name: "CBJ",
-    current: 2,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-  {
-    room_id: 10,
-    room_name: "CNE",
-    current: 5,
-    capacity: 5,
-    floor: "2",
-    floor_name: "2",
-  },
-];
+// ? Fetch disini
+const ROOM_DATA = await fetchApi(`getRooms?building_reference_id=${booking_data.building_id}`);
+console.log(ROOM_DATA);
 
 // FILTER LANTAI PADA GEDUNG SEKARANG
-const FLOOR_DATA = Array.from(
-  ROOM_DATA.reduce((map, data) => {
-    let key = `${data.floor}-${data.floor_name}`;
-    if (!map.has(key)) {
-      map.set(key, { floor: data.floor, floor_name: data.floor_name });
-    }
-    return map;
-  }, new Map()).values()
-);
+let FLOOR_DATA = [];
+if (ROOM_DATA !== null) {
+  FLOOR_DATA = Array.from(
+    ROOM_DATA.reduce((map, data) => {
+      let key = `${data.room_floor}`;
+      if (!map.has(key)) {
+        map.set(key, { room_floor: data.room_floor });
+      }
+      return map;
+    }, new Map()).values()
+  );
 
-//menampilkan list floor di bagian filter
-FLOOR_DATA.forEach((item) => {
-  const FILTER_OPTION = document.createElement("option");
-  FILTER_OPTION.value = item.floor;
-  FILTER_OPTION.textContent = `${item.floor_name} Floor`;
+  //menampilkan list floor di bagian filter
+  FLOOR_DATA.forEach((item) => {
+    const FILTER_OPTION = document.createElement("option");
+    FILTER_OPTION.value = item.room_floor;
+    FILTER_OPTION.textContent = `${item.room_floor} Floor`;
 
-  FLOOR_FILTER.appendChild(FILTER_OPTION);
-});
+    FLOOR_FILTER.appendChild(FILTER_OPTION);
+  });
+}
 
 //menampilkan Floor dan Room
 showFloor(ROOM_DATA);
@@ -130,6 +53,17 @@ FLOOR_FILTER.addEventListener("change", (e) => {
 function showFloor(data = []) {
   FLOOR_LIST.textContent = "";
 
+  if (ROOM_DATA === null) {
+    const NO_AVAIL_ROOM = document.createElement("div");
+    NO_AVAIL_ROOM.className = "font-medium text-5xl mt-20 text-unesa italic";
+    NO_AVAIL_ROOM.textContent = `
+      No Room Available    
+    `;
+    FLOOR_LIST.appendChild(NO_AVAIL_ROOM);
+
+    return false;
+  }
+
   // Ini dia ngefilter sesuai floor yang dipilih terus masuk ke function showRoom untuk nampilin data roomnya
   const FILTER = FLOOR_FILTER.value;
   if (FILTER !== "") {
@@ -138,36 +72,37 @@ function showFloor(data = []) {
   } else {
     FLOOR_DATA.forEach((item) => {
       //menampilkan room
-      showRoom(data, item.floor);
+      showRoom(data, item.room_floor);
     });
   }
 }
 
 function showRoom(data = [], filter_ = "") {
   data = data.filter((item) => {
-    return item.floor === filter_;
+    return item.room_floor === parseInt(filter_);
   });
+  console.log(data);
 
   //Membuat Details Floornya Terlebih Dahulu
   const FLOOR_DETAILS = document.createElement("details");
   FLOOR_DETAILS.className = "shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border";
   FLOOR_DETAILS.innerHTML = `
-      <summary class="p-2 mb-2 text-unesa font-medium text-xl cursor-pointer">
-        ${data[0].floor_name} Floor
+      <summary class="w-full text-start p-2 text-unesa font-medium text-xl cursor-pointer">
+        ${data[0].room_floor} Floor
       </summary>
-      <div class="px-4 pb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
-      id="room-list${data[0].floor}">
+      <div class="px-4 pt-2 pb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+      id="room-list${data[0].room_floor}">
       </div>      
   `;
 
   //Menampilkan room sesuai floor
-  const CURRENT_ROOM_LIST = FLOOR_DETAILS.querySelector(`#room-list${data[0].floor}`);
+  const CURRENT_ROOM_LIST = FLOOR_DETAILS.querySelector(`#room-list${data[0].room_floor}`);
   data.forEach((item) => {
-    const LEFT_CAPACITY = item.capacity - item.current;
+    const LEFT_CAPACITY = item.room_capacity - item.room_occupants;
     const ROOM_DIV = document.createElement("div");
     ROOM_DIV.className = `p-2 flex justify-between items-center bg-white border border-slate-500 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-xl ${LEFT_CAPACITY > 0 ? `cursor-pointer` : ``}`;
     ROOM_DIV.innerHTML = `
-      <div>
+      <div class="flex flex-col items-start">
           <div class="flex gap-1 items-center">
               <p class="text-unesa text-xl font-semibold line-clamp-1">${item.room_name}</p>
               ${
@@ -187,12 +122,12 @@ function showRoom(data = [], filter_ = "") {
                   : ""
               }
           </div>
-          <p id="text-lg font-medium">${item.floor_name} Floor</p>
+          <p id="w-fit text-lg font-medium">${item.room_floor} Floor</p>
       </div>
       <div class="flex items-center gap-3">
-          <p class="font-bold text-black text-xl"> ${item.current} / ${item.capacity}
+          <p class="font-bold text-black text-xl"> ${item.room_occupants} / ${item.room_capacity}
           </p>
-          <div class="w-4 h-4 rounded-full ${LEFT_CAPACITY == 0 ? `bg-red-700` : LEFT_CAPACITY <= item.capacity / 2 ? `bg-orange-700` : `bg-green-700`}">
+          <div class="w-4 h-4 rounded-full ${LEFT_CAPACITY == 0 ? `bg-red-700` : LEFT_CAPACITY <= item.room_capacity / 2 ? `bg-orange-700` : `bg-green-700`}">
           </div>
       </div>
     `;
@@ -202,11 +137,13 @@ function showRoom(data = [], filter_ = "") {
       ROOM_DIV.addEventListener("click", () => {
         booking_data.room_id = item.room_id;
         booking_data.room_name = item.room_name;
+        booking_data.room_price = "500000";
 
         console.log(booking_data);
         window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
 
         // ? tinggal ke halaman berikutnya
+        window.location.href = "booking.html";
       });
     }
 

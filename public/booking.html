@@ -4,27 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
 
-    <!-- Swiper JS -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script type="module" src="js/swiper.js"></script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/swiper.css" />
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/news.js"></script>
+    <script type="module" src="js/booking.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>News - Asrama Unesa</title>
+    <title>Booking - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
@@ -101,51 +94,93 @@
     </nav>
     <!-- Navbar END -->
 
-    <!-- Bagian Slider atau Carousel START -->
     <section class="container wrapper">
-        <div class="px-5">
-            <p class=" w-full text-xl sm:text-3xl font-bold text-black my-5 text-start">Where are you planning to stay?
-            </p>
-            <!-- $ SLIDER START -->
-            <div class="swiper rounded-s-xl rounded-se-xl rounded-ee-[150px]" id="swiper">
-                <!-- ! Additional required wrapper -->
-                <div class="swiper-wrapper h-[200px] sm:h-[300px] md:h-[400px]" id="swiper-news">
-                    <!-- @ Slides -->
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/unesa-news.jpg" alt="">
+        <div class="block my-4 w-fit" href="news.html" id="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+                <path fill="#0b4d70"
+                    d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12Z" />
+            </svg>
+        </div>
+        <div class="px-5 grid grid-cols-1 lg:grid-cols-2">
+            <div class="flex justify-center items-center">
+                <div class="h-fit w-full max-w-[37.5rem] border-2 border-slate-500 rounded-2xl overflow-hidden">
+                    <div class="flex justify-center py-4 text-lg font-bold border-b border-b-slate-500">Booking
                     </div>
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/towerB.jpg" alt="">
+
+                    <!-- Bagian Booking Form START -->
+                    <div class="p-4">
+                        <form id="book-form">
+                            <p class="mt-6 mb-3 text-lg font-bold">Details</p>
+
+                            <!-- Room information -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <p class="mb-1 text-xs text-gray-500 line-clamp-1">Room Number</p>
+                                    <div class="p-2 border-2 border-slate-400 rounded-lg font-medium">
+                                        <p class="font-medium text-sm sm:text-base line-clamp-1" id="booking-room">
+                                            A1-101</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1 text-xs text-gray-500 line-clamp-1">Guests</p>
+                                    <div class="p-2 border-2 border-slate-400 rounded-lg font-medium">
+                                        <p class="font-medium text-sm sm:text-base line-clamp-1">1 Adults</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1 text-xs text-gray-500 line-clamp-1">Beds</p>
+                                    <div class="p-2 border-2 border-slate-400 rounded-lg font-medium">
+                                        <p class="font-medium text-sm sm:text-base line-clamp-1">1 Beds</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- period -->
+                            <div class="mt-2">
+                                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Period</p>
+                                <select
+                                    class="w-full p-2 text-sm sm:text-base font-medium border-2 border-slate-400 rounded-lg"
+                                    name="booking-period" id="booking-period">
+                                    <option value="1">1 Month</option>
+                                    <option value="3">3 Months</option>
+                                    <option value="6">6 Months</option>
+                                </select>
+                            </div>
+
+                            <!-- personal information -->
+                            <p class="mt-6 mb-3 text-lg font-bold">Information</p>
+                            <div class="border-2 border-slate-500 rounded-xl overflow-hidden">
+                                <div class="p-2 border-b border-b-slate-500">
+                                    <p class="text-xs text-gray-500">Name</p>
+                                    <div class="w-full outline-none text-black font-medium text-sm sm:text-base"
+                                        id="booking-name">Joseph Christian</div>
+                                </div>
+                                <div class="p-2">
+                                    <p class="text-xs text-gray-500">ID Number</p>
+                                    <div class="w-full outline-none text-black font-medium text-sm sm:text-base"
+                                        id="booking-user-id">c14200200</div>
+                                </div>
+                            </div>
+
+                            <!-- Privacy Policies -->
+                            <a class="my-6 block text-sm font-medium" href="#">
+                                <p class="underline underline-offset-2">Privacy policies</p>
+                            </a>
+
+                            <button type="submit"
+                                class="w-full text-center bg-unesa py-2 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa">
+                                Book
+                            </button>
+                        </form>
                     </div>
-                </div>
-                <!-- !  If we need pagination -->
-                <div class="swiper-pagination">
+                    <!-- Bagian Booking Form END -->
                 </div>
             </div>
-            <!-- $ SLIDER END -->
+            <div class="hidden lg:flex justify-center items-center">
+                <img class="xl:max-h-[550px]  -scale-x-100" src="../asset/image/sapiens2.png" alt="">
+            </div>
         </div>
     </section>
-    <!-- Bagian Slider atau Carousel END -->
-
-    <!-- Bagian List Building START -->
-    <section class="container wrapper mt-10">
-        <div class="px-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6" id="building-list">
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Bagian List Building END -->
-    <br>
     <br>
 </body>
 

@@ -4,27 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
 
-    <!-- Swiper JS -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script type="module" src="js/swiper.js"></script>
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/swiper.css" />
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/news.js"></script>
+    <script type="module" src="js/history.js"></script>
     <link rel="stylesheet" href="css/style.css" />
-    <title>News - Asrama Unesa</title>
+    <title>Booking - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
@@ -101,51 +94,70 @@
     </nav>
     <!-- Navbar END -->
 
-    <!-- Bagian Slider atau Carousel START -->
     <section class="container wrapper">
-        <div class="px-5">
-            <p class=" w-full text-xl sm:text-3xl font-bold text-black my-5 text-start">Where are you planning to stay?
-            </p>
-            <!-- $ SLIDER START -->
-            <div class="swiper rounded-s-xl rounded-se-xl rounded-ee-[150px]" id="swiper">
-                <!-- ! Additional required wrapper -->
-                <div class="swiper-wrapper h-[200px] sm:h-[300px] md:h-[400px]" id="swiper-news">
-                    <!-- @ Slides -->
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/unesa-news.jpg" alt="">
+        <div class="flex items-center my-4">
+            <a class="block w-fit cursor-pointer" href="news.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+                    <path fill="#0b4d70"
+                        d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12Z" />
+                </svg>
+            </a>
+            <h1 class="ml-4 font-bold text-2xl">Booking List</h1>
+        </div>
+
+        <div class="mx-11 p-4 border border-gray-600 rounded-lg">
+
+            <div class="relative flex items-center">
+                <input class="p-2 pl-9 border border-slate-400 rounded-lg focus:outline-unesa" placeholder="Search.."
+                    type="text" name="search-filter" id="search-filter">
+                <svg class="absolute left-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path fill="#0b4d70"
+                        d="M10 2.5a7.5 7.5 0 0 1 5.964 12.048l4.743 4.745a1 1 0 0 1-1.32 1.497l-.094-.083l-4.745-4.743A7.5 7.5 0 1 1 10 2.5Zm0 2a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11Z" />
+                </svg>
+            </div>
+
+            <div class="grid gap-2 mt-4 h-[60vh] overflow-y-scroll" id="booking-list">
+                <div class="h-fit p-4 border border-gray-600 rounded-lg">
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                            <path fill="#0b4d70"
+                                d="m16.75 22.16l-2.75-3L15.16 18l1.59 1.59L20.34 16l1.16 1.41l-4.75 4.75M18 2c1.1 0 2 .9 2 2v9.34c-.63-.22-1.3-.34-2-.34V4h-5v8l-2.5-2.25L8 12V4H6v16h6.08c.12.72.37 1.39.72 2H6c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h12Z" />
+                        </svg>
+                        <p class="text-lg font-bold">Booking</p>
+                        <p class="text-lg font-medium">32 jan 2023</p>
+                        <div class="py-1 px-2 text-white font-semibold border bg-red-700 rounded-md">Menunggu Pembayaran
+                        </div>
+                        <p class="text-lg font-medium">BookingID-567</p>
                     </div>
-                    <div class="swiper-slide">
-                        <img class="h-full w-full object-fill" src="../asset/image/towerB.jpg" alt="">
+                    <div class="mt-3 flex flex-wrap gap-2 items-center">
+                        <p class="text-lg font-bold">A1-001</p>
+                        <p class="text-lg font-medium">[1 Adult, 1 Bed]</p>
                     </div>
-                </div>
-                <!-- !  If we need pagination -->
-                <div class="swiper-pagination">
+                    <div class="mt-1 flex flex-wrap gap-2 items-center">
+                        <p class="text-lg font-medium">32 jan 2023</p>
+                        <p class="text-lg ">-</p>
+                        <p class="text-lg font-medium">32 jan 2023</p>
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap gap-2 justify-between items-center">
+                        <div class="flex gap-2 items-center">
+                            <img class="h-4" src="../asset/image/bca-logo.png" alt="">
+                            <p class="text-lg font-medium line-clamp-1">Bank Central Asia Virtual Account</p>
+                        </div>
+                        <button id="extend-btn"
+                            class="hidden bg-unesa py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                            Extend
+                        </button>
+                        <button id="pay-btn"
+                            class="bg-unesa py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                            Pay for booking
+                        </button>
+                    </div>
                 </div>
             </div>
-            <!-- $ SLIDER END -->
         </div>
     </section>
-    <!-- Bagian Slider atau Carousel END -->
-
-    <!-- Bagian List Building START -->
-    <section class="container wrapper mt-10">
-        <div class="px-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6" id="building-list">
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-            <div
-                class="rounded-xl animate-pulse overflow-hidden aspect-square relative cursor-pointer shadow-[6px_7px_4px_0px_rgba(0,0,0,0.25)]">
-                <div class="w-full h-full bg-slate-300">
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Bagian List Building END -->
-    <br>
     <br>
 </body>
 
