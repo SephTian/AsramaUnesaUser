@@ -15,7 +15,7 @@
 
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/profile.js"></script>
+    <!-- <script type="module" src="js/profile.js"></script> -->
     <link rel="stylesheet" href="css/style.css" />
     <title>Profile - Asrama Unesa</title>
 </head>
@@ -118,13 +118,14 @@
                         class="max-h-[250px] aspect-square rounded-full overflow-hidden shadow-[0_0_14px_2px_rgba(0,0,0,0.25)]">
                         <img class="w-full h-full object-cover" src="../asset/image/avatar.jpg">
                     </div>
-                    <button id="change-picture-btn"
+                    <label for="change-picture-btn"
                         class="absolute bottom-0 right-0 p-4 bg-unesa rounded-full shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
                             <path fill="white"
                                 d="M448 80c8.8 0 16 7.2 16 16v319.8l-5-6.5l-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3l-83 107.4l-30.5-42.7c-4.5-6.3-11.7-10-19.5-10s-15 3.7-19.5 10.1l-80 112l-4.5 6.2V96c0-8.8 7.2-16 16-16h384zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96a48 48 0 1 0 0 96z" />
                         </svg>
-                    </button>
+                    </label>
+                    <input class="hidden" type="file" name="change-picture-btn" id="change-picture-btn">
                 </div>
 
                 <!-- bagian Bawah Image -->
@@ -137,63 +138,51 @@
                 </div>
             </div>
             <div class="mx-5 p-4 border col-span-2 shadow-[0_0_14px_-1px_rgba(0,0,0,0.25)] rounded-2xl">
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <!-- Personal Information -->
-                    <div>
+                    <div class="">
                         <div class="">
                             <p class="font-medium text-xs text-slate-500">Full Name</p>
                             <p class="font-medium text-lg text-black" id="user-name">Steven Doni Atiko</p>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">ID Number</p>
                             <p class="font-medium text-lg text-black" id="user-id">STD14562009</p>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Place & Date of Birth</p>
                             <p class="font-medium text-lg text-black" id="user-date-of-birth">Surabaya, 25 October 2000
                             </p>
                         </div>
-                        <div class="mt-4">
-                            <p class="font-medium text-xs text-slate-500">Major</p>
-                            <p class="font-medium text-lg text-black" id="user-major">Computer Science</p>
-                        </div>
-                        <div class="mt-4">
-                            <p class="font-medium text-xs text-slate-500">Faculty</p>
-                            <p class="font-medium text-lg text-black" id="user-faculty">Surabaya, 25 October 2000</p>
-                        </div>
-                        <div class="mt-4">
-                            <p class="font-medium text-xs text-slate-500">Address</p>
-                            <p class="font-medium text-lg text-black" id="user-address">GBM M46</p>
-                        </div>
-                        <div class="mt-4">
+                        <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Phone Number</p>
                             <p class="font-medium text-lg text-black" id="user-phone">082234332345</p>
                         </div>
                     </div>
 
                     <!-- Parent Information -->
-                    <div>
+                    <div class="mt-6 sm:mt-0">
                         <div class="">
                             <p class="font-medium text-xs text-slate-500">Name (Father)</p>
                             <p class="font-medium text-lg text-black" id="user-father-name">Toni Atiko</p>
                         </div>
-                        <div class="mt-4">
-                            <p class="font-medium text-xs text-slate-500">Occupation (Father)</p>
-                            <p class="font-medium text-lg text-black" id="user-father-occ">Businessman</p>
+                        <div class="mt-2">
+                            <p class="font-medium text-xs text-slate-500">NIK (Father)</p>
+                            <p class="font-medium text-lg text-black" id="user-father-nik">123456789</p>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Phone Number (Father)</p>
                             <p class="font-medium text-lg text-black" id="user-father-phone">081234567890</p>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-6">
                             <p class="font-medium text-xs text-slate-500">Name (Mother)</p>
                             <p class="font-medium text-lg text-black" id="user-mother-name">Donna Ningrum</p>
                         </div>
-                        <div class="mt-4">
-                            <p class="font-medium text-xs text-slate-500">Occupation (Mother)</p>
-                            <p class="font-medium text-lg text-black" id="user-mother-occ">Tax Accountant</p>
+                        <div class="mt-2">
+                            <p class="font-medium text-xs text-slate-500">NIK (Mother)</p>
+                            <p class="font-medium text-lg text-black" id="user-mother-nik">123456789</p>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Phone Number (Mother)</p>
                             <p class="font-medium text-lg text-black" id="user-mother-phone">081234567890</p>
                         </div>
