@@ -14,22 +14,28 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/style.css" />
-    <!-- <script type="module" src="js/register.js"></script> -->
-    <title>Login - Asrama Unesa</title>
+    <script type="module" src="js/register.js"></script>
+    <title>Register - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
     <!-- Navbar -->
-    <nav class="mx-5 bg-white border-b-2 border-slate-300">
-        <div class="container wrapper h-20 flex justify-between items-center">
-            <a href="index.html">
-                <P class="text-2xl md:text-4xl font-medium">asrama <span
-                        class="text-xs md:text-base font-medium text-unesa">UNESA</span></P>
-            </a>
-            <div class="flex justify-between items-center" id="menu">
-                <p class="font-medium">welcome</p>
-                <a href="login.html">
-                    <div class="flex items-center gap-2 border-2 ml-3 rounded-full px-1 py-1 cursor-pointer bg-white">
+    <nav class="fixed z-50 top-0 w-full">
+        <div class="bg-white border-b-2 border-slate-300 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.1)]">
+            <div class="relative container wrapper h-20 flex justify-between items-center ">
+                <div class="flex gap-3 items-center">
+                    <a href="index.html">
+                        <P class="text-2xl md:text-4xl font-medium">asrama<span
+                                class="ml-1 text-xs md:text-base font-medium text-unesa">UNESA</span></P>
+                    </a>
+                </div>
+                <!-- Bagian Buka Menu START -->
+                <a class="flex justify-between items-center" href="login.html">
+                    <p class="hidden md:block font-medium mr-10">Welcome<span class="ml-2 font-semibold"
+                            id="user-greet"></span>
+                    </p>
+                    <div class="flex items-center gap-2 border rounded-full px-1 py-1 cursor-pointer bg-white shadow-[0_2px_2px_0px_rgba(0,0,0,0.25)] hover:translate-y-1 hover:shadow-none "
+                        id="open-menu">
                         <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                             <path fill="none" stroke="#0b4d70" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
@@ -42,12 +48,12 @@
                         </div>
                     </div>
                 </a>
+                <!-- Bagian Buka Menu START -->
             </div>
-        </div>
     </nav>
     <!-- Navbar END -->
 
-    <section class="container wrapper">
+    <section class="container wrapper pt-20">
         <div class="w-fit my-4 cursor-pointer" id="back-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
                 <path fill="#0b4d70"
@@ -64,29 +70,29 @@
                     <div class="p-4">
 
                         <!-- ! Personal Information -->
-                        <form class="" register-page-1>
+                        <div class="" register-page-1>
                             <p class="mb-1 text-sm text-unesa font-semibold">Personal information</p>
                             <!-- name coverage -->
                             <div class="grid grid-cols-2 gap-4">
                                 <!-- First Name -->
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">First Name
-                                        <small class="text-red-600">*</small>
+                                        <span class="text-xs text-red-600">*</span>
                                     </p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                        type="text" placeholder="First Name" name="first-name" id="first-name" required>
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="text" placeholder="First Name" name="first-name" id="first-name">
                                     <small class="break-words text-red-600"></small>
                                 </div>
 
                                 <!-- Last Name -->
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Last Name
-                                        <small class="text-red-600">*</small>
+                                        <span class="text-xs text-red-600">*</span>
                                     </p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                        type="text" placeholder="Last Name" name="last-name" id="last-name" required>
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="text" placeholder="Last Name" name="last-name" id="last-name">
                                     <small class="break-words text-red-600"></small>
                                 </div>
                             </div>
@@ -94,20 +100,21 @@
                             <!-- SID -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Student ID Number
-                                    <small class="text-red-600">*</small>
+                                    <span class="text-xs text-red-600">*</span>
                                 </p>
                                 <input
-                                    class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                    type="text" placeholder="Student Id Number" name="sid" id="sid" required>
+                                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                    type="text" placeholder="Student Id Number" name="sid" id="sid">
                                 <small class="break-words text-red-600"></small>
                             </div>
 
-                            <!-- Image (not required) -->
+                            <!-- Image (not req) -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Student Image</p>
                                 <div
-                                    class="h-11 w-full flex justify-between items-center border-2 border-slate-400 rounded-lg font-medium overflow-hidden placeholder:text-sm">
-                                    <p class="m-2 text-sm line-clamp-1">Upload Photo of Your Face</p>
+                                    class="h-11 w-full flex justify-between items-center border border-slate-400 rounded-lg font-medium overflow-hidden placeholder:text-sm shadow-inner">
+                                    <p class="m-2 text-sm line-clamp-1" id="photo-name-viewer">Upload Photo of Your Face
+                                    </p>
                                     <label class="block h-full bg-slate-400 cursor-pointer p-2 text-black font-medium"
                                         for="photo">browse</label>
                                     <input class="hidden" type="file" name="photo" id="photo" accept="image/*" />
@@ -119,23 +126,22 @@
                                 <!-- Birth Place -->
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Birth Place
-                                        <small class="text-red-600">*</small>
+                                        <span class="text-xs text-red-600">*</span>
                                     </p>
                                     <input
-                                        class="w-full text-base p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                        type="text" placeholder="Birth Place" name="birth-place" id="birth-place"
-                                        required>
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="text" placeholder="Birth Place" name="birth-place" id="birth-place">
                                     <small class="break-words text-red-600"></small>
                                 </div>
 
                                 <!-- Birth Date -->
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Birth Date
-                                        <small class="text-red-600">*</small>
+                                        <span class="text-xs text-red-600">*</span>
                                     </p>
                                     <input
-                                        class="w-full h-11 text-base px-2 border-2 border-slate-400 rounded-lg font-medium"
-                                        type="date" name="birth-date" id="birth-date" required>
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="date" name="birth-date" id="birth-date">
                                     <small class="break-words text-red-600"></small>
                                 </div>
                             </div>
@@ -143,7 +149,7 @@
                             <!-- Gender -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Gender
-                                    <small class="text-red-600">*</small>
+                                    <span class="text-xs text-red-600">*</span>
                                 </p>
                                 <div class="grid grid-cols-2">
 
@@ -153,7 +159,7 @@
                                             value="GenderID-1" checked>
                                         <label
                                             class="w-11 h-11 p-2 block border border-unesa bg-white rounded-md cursor-pointer 
-                                                                        peer-checked:bg-unesa  hover:bg-unesa shadow-[0_2px_2px_0px_rgba(0,0,0,0.25)]"
+                                                peer-checked:bg-unesa  hover:bg-unesa shadow-[0_2px_2px_0px_rgba(0,0,0,0.25)]"
                                             for="gender-type-1">
                                         </label>
                                         <p class="text-sm text-gray-500 font-medium">Male</p>
@@ -175,46 +181,46 @@
                             <!-- Phone Number -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Phone Number
-                                    <small class="text-red-600">*</small>
+                                    <span class="text-xs text-red-600">*</span>
                                 </p>
                                 <input
-                                    class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                    type="text" placeholder="Phone Number" name="phone" id="phone" required>
+                                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                    type="number" placeholder="Phone Number" name="phone" id="phone">
                                 <small class="break-words text-red-600"></small>
                             </div>
 
                             <!-- Password -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Password
-                                    <small class="text-red-600">*</small>
+                                    <span class="text-xs text-red-600">*</span>
                                 </p>
                                 <input
-                                    class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                    type="password" placeholder="Password" name="password" id="password" required>
+                                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                    type="password" placeholder="Password" name="password" id="password">
                                 <small class="break-words text-red-600"></small>
                             </div>
 
                             <!-- RE-CONFIRM Password -->
                             <div class="mt-2">
                                 <p class="mb-1 text-xs text-gray-500 line-clamp-1">Confirm Your Password
-                                    <small class="text-red-600">*</small>
+                                    <span class="text-xs text-red-600">*</span>
                                 </p>
                                 <input
-                                    class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
+                                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
                                     type="password" placeholder="Confirm Password" name="confirm-password"
-                                    id="confirm-password" required>
+                                    id="confirm-password">
                                 <small class="break-words text-red-600"></small>
                             </div>
 
                             <!-- continue to the next page -->
-                            <button type="submit" id="next-register-page-btn"
+                            <button id="next-register-page-btn"
                                 class="mt-6 w-full flex justify-center bg-unesa py-2 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa">
                                 next
                             </button>
-                        </form>
+                        </div>
 
                         <!-- ! Parent Information -->
-                        <form class="hidden" register-page-2>
+                        <div class="hidden" register-page-2>
                             <!-- Father coverage -->
                             <div>
                                 <p class="mb-1 text-sm text-unesa font-semibold">Father information</p>
@@ -222,15 +228,15 @@
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father NIK</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium  placeholder:text-sm"
-                                        type="text" placeholder="Father NIK" name="father-nik" id="father-nik">
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="number" placeholder="Father NIK" name="father-nik" id="father-nik">
                                     <small class="break-words text-red-600"></small>
                                 </div>
                                 <!-- Father Name -->
                                 <div class="mt-2">
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father Name</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm"
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm shadow-inner"
                                         type="text" placeholder="Father Name" name="father-name" id="father-name"
                                         disabled>
                                     <small class="break-words text-red-600"></small>
@@ -240,8 +246,8 @@
                                 <div class="mt-2">
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father Phone Number</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm"
-                                        type="text" placeholder="Father Phone Number" name="father-phone"
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm shadow-inner"
+                                        type="number" placeholder="Father Phone Number" name="father-phone"
                                         id="father-phone" disabled>
                                     <small class="break-words text-red-600"></small>
                                 </div>
@@ -254,8 +260,8 @@
                                 <div>
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother NIK</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium placeholder:text-sm"
-                                        type="text" placeholder="Mother NIK" name="mother-nik" id="mother-nik">
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                                        type="number" placeholder="Mother NIK" name="mother-nik" id="mother-nik">
                                     <small class="break-words text-red-600"></small>
                                 </div>
 
@@ -263,7 +269,7 @@
                                 <div class="mt-2">
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother Name</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm"
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm shadow-inner"
                                         type="text" placeholder="Mother Name" name="mother-name" id="mother-name"
                                         disabled>
                                     <small class="break-words text-red-600"></small>
@@ -273,17 +279,17 @@
                                 <div class="mt-2">
                                     <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother Phone Number</p>
                                     <input
-                                        class="w-full p-2 border-2 border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm"
-                                        type="text" placeholder="Mother Phone Number" name="mother-phone"
+                                        class="w-full p-2 border border-slate-400 rounded-lg font-medium disabled:bg-slate-200 placeholder:text-sm shadow-inner"
+                                        type="number" placeholder="Mother Phone Number" name="mother-phone"
                                         id="mother-phone" disabled>
                                     <small class="break-words text-red-600"></small>
                                 </div>
                             </div>
-                            <button type="submit" id="submit-register-page-btn"
+                            <button id="submit-register-page-btn"
                                 class="mt-6 w-full flex justify-center bg-unesa py-2 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-xl border-unesa">
                                 submit
                             </button>
-                        </form>
+                        </div>
 
                     </div>
                     <!-- Bagian Login Form END -->
@@ -296,7 +302,14 @@
     </section>
     <br>
 
-
+    <!-- FOR LOADING SCREEN WHEN FETCHING AN API PURPOSE -->
+    <dialog id="loading-screen"
+        class="w-40 h-40 rounded-xl bg-white backdrop:bg-backdrop overflow-hidden focus:outline-none">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <div class="w-20 h-20 border-8 rounded-full border-t-unesa animate-loading-screen"></div>
+            <p class="mt-2 font-medium">Please wait...</p>
+        </div>
+    </dialog>
 </body>
 
 </html>

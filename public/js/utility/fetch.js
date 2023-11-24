@@ -3,9 +3,8 @@ import { config } from "./config.js";
 let token = sessionStorage.getItem("token");
 export async function fetchApi(url, meth = "GET", send_data = null, convert_formdata = true) {
   const endpoint = `${config.api}${url}`;
-
   // If type of fetch is GET
-  if (meth == "GET") {
+  if (meth === "GET") {
     const response = await fetch(endpoint, {
       headers: {
         Accept: "application/json",
@@ -15,21 +14,22 @@ export async function fetchApi(url, meth = "GET", send_data = null, convert_form
     });
     const { data } = await response.json();
 
-    return data; // Return the data
+    // Return the data
+    return data;
 
-    // If type of fetch is POST
-  } else if (meth == "POST") {
+    // If type of fetch is POST or PUT
+  } else if (meth === "POST" || meth === "PUT") {
     let formData = "";
 
-    // Converting form data by parameter on API
     if (convert_formdata) {
+      // Converting form data by parameter on API
       formData = new URLSearchParams();
       for (const [key, value] of Object.entries(send_data)) {
         formData.append(key, value.toString());
       }
 
       // Not Converting cause API need pure Raw Data
-    } else {
+    } else if (!convert_formdata) {
       formData = send_data;
       console.warn(`Passing Raw Data: ${formData}`);
     }
@@ -50,7 +50,7 @@ export async function fetchApi(url, meth = "GET", send_data = null, convert_form
     if (responseData != null) {
       return responseData;
 
-      // If fetch is FAILED (Due to server error)
+      // If fetch is FAILED
     } else {
       await Swal.fire({
         title: `${responseData["message"]}`,
@@ -60,25 +60,41 @@ export async function fetchApi(url, meth = "GET", send_data = null, convert_form
         timerProgressBar: true,
         timer: 2000,
       });
-
       return false;
     }
+  }
+}
 
-    // If type of fetch is PUT
-  } else if (meth == "PUT") {
+export async function fetchApiImage(url, meth = "GET", send_data = null) {
+  const endpoint = `${config.api}${url}`;
+
+  //IF the method is GET
+  if (meth === "GET") {
+    // DOING FETCH
+    const response = await fetch(endpoint, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const { data } = await response.json();
+
+    // Return the data
+    return data;
+
+    // If type of fetch is POST or PUT
+  } else if (meth === "POST" || meth === "PUT") {
     // Converting form data by parameter on API
-    let formData = new URLSearchParams();
+    let formData = new FormData();
     for (const [key, value] of Object.entries(send_data)) {
-      formData.append(key, value.toString());
+      formData.append(key, value);
     }
-    console.warn(`Passing Raw Data: ${formData}`);
 
     // DOING FETCH
     const response = await fetch(endpoint, {
       method: meth,
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
         Authorization: `Bearer ${token}`,
       },
       body: formData,

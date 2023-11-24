@@ -52,7 +52,7 @@ document.querySelector("#book-form").addEventListener("submit", async (e) => {
   } else {
     // Memasukkan ke Session
     booking_data.check_in = CHECK_IN;
-    booking_data.check_out = CHECK_OUT;
+    booking_data.check_out = `${CHECK_OUT}T23:59:59`;
     window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));
 
     window.location.href = "payment.html";

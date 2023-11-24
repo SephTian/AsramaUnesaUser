@@ -15,192 +15,559 @@
 
     <!-- Local JS & CSS -->
     <script type="module" src="js/navbar.js"></script>
-    <!-- <script type="module" src="js/profile.js"></script> -->
+    <script type="module" src="js/profile.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>Profile - Asrama Unesa</title>
 </head>
 
 <body class="font-montserrat">
     <!-- Navbar -->
-    <nav class="md:mx-5 bg-white border-b-2 border-slate-300">
-        <div class="container wrapper h-20 flex justify-between items-center ">
-            <a href="news.html">
-                <P class="text-2xl md:text-4xl font-medium">asrama <span
-                        class="text-xs md:text-base font-medium text-unesa">UNESA</span></P>
-            </a>
+    <nav class="fixed z-50 top-0 w-full">
+        <div class="bg-white border-b-2 border-slate-300 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.1)]">
+            <div class="relative container wrapper h-20 flex justify-between items-center ">
+                <div class="flex gap-3 items-center">
+                    <a href="news.html">
+                        <P class="text-2xl md:text-4xl font-medium">asrama<span
+                                class="ml-1 text-xs md:text-base font-medium text-unesa">UNESA</span></P>
+                    </a>
+                </div>
+                <!-- Bagian List Menu START -->
+                <div class="fixed h-screen z-50 w-0 right-0 inset-y-0 bg-unesa flex-col transition-all duration-300 overflow-hidden"
+                    id="menu">
 
-            <!-- Bagian List Menu START -->
-            <div class="fixed h-screen z-50 w-0 right-0 inset-y-0 bg-unesa flex-col transition-all duration-300 overflow-hidden"
-                id="menu">
+                    <div class="h-full flex flex-col justify-between">
+                        <div>
+                            <!-- Bagian Tutup Menu START -->
+                            <div class="flex justify-end mr-4 my-4">
+                                <svg class="fill-white cursor-pointer" id="close-menu"
+                                    xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-3.4 14L12 13.4L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7L17 8.4L13.4 12l3.6 3.6l-1.4 1.4Z" />
+                                </svg>
+                            </div>
+                            <!-- Bagian Tutup Menu END -->
 
-                <div class="h-full flex flex-col justify-between">
-                    <div>
-                        <!-- Bagian Tutup Menu START -->
-                        <div class="flex justify-end mr-4 my-4 cursor-pointer">
-                            <svg class="fill-white" id="close-menu" xmlns="http://www.w3.org/2000/svg" width="32"
-                                height="32" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-3.4 14L12 13.4L8.4 17L7 15.6l3.6-3.6L7 8.4L8.4 7l3.6 3.6L15.6 7L17 8.4L13.4 12l3.6 3.6l-1.4 1.4Z" />
+                            <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white"
+                                href="profile.html">
+                                <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12 4a8 8 0 0 0-6.96 11.947A4.99 4.99 0 0 1 9 14h6a4.99 4.99 0 0 1 3.96 1.947A8 8 0 0 0 12 4Zm7.943 14.076A9.959 9.959 0 0 0 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12a9.958 9.958 0 0 0 2.057 6.076l-.005.018l.355.413A9.98 9.98 0 0 0 12 22a9.947 9.947 0 0 0 5.675-1.765a10.055 10.055 0 0 0 1.918-1.728l.355-.413l-.005-.018ZM12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-white font-medium group-hover:text-unesa">Profile</p>
+                            </a>
+                            <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white" href="news.html">
+                                <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M3 5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V5zm5 0v7l2.293-2.293a1 1 0 0 1 1.414 0L14 12V5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-white font-medium group-hover:text-unesa">Book</p>
+                            </a>
+                            <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white"
+                                href="history.html">
+                                <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 16 16">
+                                    <path
+                                        d="m.427 1.927l1.215 1.215a8.002 8.002 0 1 1-1.6 5.685a.75.75 0 1 1 1.493-.154a6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z" />
+                                </svg>
+                                <p class="text-white font-medium group-hover:text-unesa">History</p>
+                            </a>
+                        </div>
+
+                        <div class="flex justify-center items-center mb-4">
+                            <button id="logout-btn"
+                                class="bg-red-600 py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-red-600">
+                                Log Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bagian List Menu END -->
+
+                <!-- Bagian Buka Menu dan Notif START -->
+                <div class="flex justify-between items-center">
+                    <p class="hidden md:block font-medium mr-10">Welcome<span class="ml-2 font-semibold"
+                            id="user-greet"></span>
+                    </p>
+                    <div id="open-notif-btn"
+                        class="relative cursor-pointer p-2 mr-5 bg-white border rounded-full shadow-[0_2px_2px_0px_rgba(0,0,0,0.25)] hover:translate-y-1 hover:shadow-none">
+                        <svg class="fill-unesa" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="m20 18.667l.4.533a.5.5 0 0 1-.4.8H4a.5.5 0 0 1-.4-.8l.4-.533V10a8 8 0 1 1 16 0v8.667ZM9.5 21h5a2.5 2.5 0 0 1-5 0Z" />
+                        </svg>
+                        <div class="absolute top-0 right-0 h-3 w-3 bg-orange-400 rounded-full hidden" id="is-notif">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 border rounded-full px-1 py-1 cursor-pointer bg-white shadow-[0_2px_2px_0px_rgba(0,0,0,0.25)] hover:translate-y-1 hover:shadow-none "
+                        id="open-menu">
+                        <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path fill="none" stroke="#0b4d70" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                        <div class=" bg-unesa rounded-full px-1 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z" />
                             </svg>
                         </div>
-                        <!-- Bagian Tutup Menu END -->
-
-                        <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white" href="profile.html">
-                            <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M12 4a8 8 0 0 0-6.96 11.947A4.99 4.99 0 0 1 9 14h6a4.99 4.99 0 0 1 3.96 1.947A8 8 0 0 0 12 4Zm7.943 14.076A9.959 9.959 0 0 0 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12a9.958 9.958 0 0 0 2.057 6.076l-.005.018l.355.413A9.98 9.98 0 0 0 12 22a9.947 9.947 0 0 0 5.675-1.765a10.055 10.055 0 0 0 1.918-1.728l.355-.413l-.005-.018ZM12 6a3 3 0 1 0 0 6a3 3 0 0 0 0-6Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <p class="text-white font-medium group-hover:text-unesa">Profile</p>
-                        </a>
-                        <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white" href="news.html">
-                            <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M3 5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V5zm5 0v7l2.293-2.293a1 1 0 0 1 1.414 0L14 12V5a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <p class="text-white font-medium group-hover:text-unesa">Book</p>
-                        </a>
-                        <a class="group flex gap-2 py-3 px-3 border border-unesa hover:bg-white" href="history.html">
-                            <svg class="fill-white group-hover:fill-unesa" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 16 16">
-                                <path
-                                    d="m.427 1.927l1.215 1.215a8.002 8.002 0 1 1-1.6 5.685a.75.75 0 1 1 1.493-.154a6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z" />
-                            </svg>
-                            <p class="text-white font-medium group-hover:text-unesa">History</p>
-                        </a>
                     </div>
+                </div>
+                <!-- Bagian Buka Menu dan Notif START -->
 
-                    <div class="flex justify-center items-center mb-4">
-                        <button id="logout-btn"
-                            class="bg-red-600 py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-red-600">
-
-                            Log Out
+                <div id="notif-bar"
+                    class="absolute top-24 right-0 w-full h-0 bg-white sm:w-[425px] sm:right-10 rounded-b-lg shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] transition-all duration-300 overflow-hidden">
+                    <div class="flex w-full justify-between items-center p-4 bg-unesa">
+                        <div class="font-semibold text-xl text-white">Notification</div>
+                        <button class="outline-none bg-none" id="close-notif-btn">
+                            <svg class="fill-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20"
+                                height="20" viewBox="0 0 24 24">
+                                <path
+                                    d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                            </svg>
                         </button>
                     </div>
-                </div>
-            </div>
-            <!-- Bagian List Menu END -->
-
-            <!-- Bagian Buka Menu START -->
-            <div class="flex justify-between items-center" id="open-menu">
-                <p class="font-medium mx-3">welcome</p>
-                <div class="flex items-center gap-2 border-2 rounded-full px-1 py-1 cursor-pointer bg-white">
-                    <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                        <path fill="none" stroke="#0b4d70" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="M3 6h18M3 12h18M3 18h18" />
-                    </svg>
-                    <div class=" bg-unesa rounded-full px-1 py-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                            <path fill="white"
-                                d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z" />
-                        </svg>
+                    <div class="p-4 h-[500px] overflow-scroll" id="notif-list">
                     </div>
                 </div>
             </div>
-            <!-- Bagian Buka Menu START -->
-
         </div>
     </nav>
     <!-- Navbar END -->
 
-    <section class="container wrapper my-8">
-        <div class="grid grid-cols-1 md:grid-cols-3">
-
+    <section class="container wrapper my-20 overflow-auto">
+        <div class="py-10 grid grid-cols-1 md:grid-cols-3">
             <!-- Bagian sebelah kiri -->
             <div class="px-2 flex flex-col items-center">
 
                 <!-- bagian image -->
                 <div class="relative">
                     <div
-                        class="max-h-[250px] aspect-square rounded-full overflow-hidden shadow-[0_0_14px_2px_rgba(0,0,0,0.25)]">
-                        <img class="w-full h-full object-cover" src="../asset/image/avatar.jpg">
+                        class="h-[256px] aspect-square rounded-full overflow-hidden shadow-[0_0_14px_2px_rgba(0,0,0,0.25)]">
+                        <img class="w-full h-full object-cover bg-slate-300" id="user-image" src="">
                     </div>
                     <label for="change-picture-btn"
-                        class="absolute bottom-0 right-0 p-4 bg-unesa rounded-full shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]">
+                        class="cursor-pointer absolute bottom-0 right-0 p-4 bg-unesa rounded-full shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
                             <path fill="white"
                                 d="M448 80c8.8 0 16 7.2 16 16v319.8l-5-6.5l-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3l-83 107.4l-30.5-42.7c-4.5-6.3-11.7-10-19.5-10s-15 3.7-19.5 10.1l-80 112l-4.5 6.2V96c0-8.8 7.2-16 16-16h384zM64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96a48 48 0 1 0 0 96z" />
                         </svg>
                     </label>
-                    <input class="hidden" type="file" name="change-picture-btn" id="change-picture-btn">
+                    <input class="hidden" type="file" name="change-picture-btn" id="change-picture-btn"
+                        accept="image/*">
                 </div>
 
                 <!-- bagian Bawah Image -->
                 <div class="w-full text-center md:text-start max-w-[250px] mt-6 mb-4">
-                    <p class="text-lg font-bold" id="user-name">Steven doni atiko</p>
-                    <p class="text-lg font-medium" id="user-status">Active Student</p>
+                    <p class="text-lg font-bold" id="user-name"></p>
+                    <p class="text-lg font-medium" id="user-status"></p>
 
                     <p class="mt-2 text-lg font-bold">Account ID</p>
-                    <p class="text-lg font-medium" id="user-acc-id">ASDEW456547121</p>
+                    <p class="text-lg font-medium" id="user-acc-id"></p>
                 </div>
             </div>
             <div class="mx-5 p-4 border col-span-2 shadow-[0_0_14px_-1px_rgba(0,0,0,0.25)] rounded-2xl">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-2">
                     <!-- Personal Information -->
                     <div class="">
+                        <p class="font-bold text-sm text-unesa mb-2">Personal Information</p>
                         <div class="">
                             <p class="font-medium text-xs text-slate-500">Full Name</p>
-                            <p class="font-medium text-lg text-black" id="user-name">Steven Doni Atiko</p>
+                            <p class="font-medium text-lg text-black" id="user-name">-</p>
                         </div>
                         <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">ID Number</p>
-                            <p class="font-medium text-lg text-black" id="user-id">STD14562009</p>
+                            <p class="font-medium text-lg text-black" id="user-id">-</p>
                         </div>
                         <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Place & Date of Birth</p>
-                            <p class="font-medium text-lg text-black" id="user-date-of-birth">Surabaya, 25 October 2000
+                            <p class="font-medium text-lg text-black" id="user-birth">-
                             </p>
                         </div>
                         <div class="mt-2">
                             <p class="font-medium text-xs text-slate-500">Phone Number</p>
-                            <p class="font-medium text-lg text-black" id="user-phone">082234332345</p>
+                            <p class="font-medium text-lg text-black" id="user-phone">-</p>
                         </div>
                     </div>
 
                     <!-- Parent Information -->
                     <div class="mt-6 sm:mt-0">
-                        <div class="">
-                            <p class="font-medium text-xs text-slate-500">Name (Father)</p>
-                            <p class="font-medium text-lg text-black" id="user-father-name">Toni Atiko</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="font-medium text-xs text-slate-500">NIK (Father)</p>
-                            <p class="font-medium text-lg text-black" id="user-father-nik">123456789</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="font-medium text-xs text-slate-500">Phone Number (Father)</p>
-                            <p class="font-medium text-lg text-black" id="user-father-phone">081234567890</p>
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <p class="font-bold text-sm text-unesa">Father Information</p>
+                                <button id="btn-add-father"
+                                    class="hidden bg-unesa py-1 px-3 font-bold text-white text-xs shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                                    add
+                                </button>
+                            </div>
+                            <div class="">
+                                <p class="font-medium text-xs text-slate-500">Name (Father)</p>
+                                <p class="font-medium text-lg text-black" id="user-father-name">-</p>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-medium text-xs text-slate-500">NIK (Father)</p>
+                                <p class="font-medium text-lg text-black" id="user-father-nik">-</p>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-medium text-xs text-slate-500">Phone Number (Father)</p>
+                                <p class="font-medium text-lg text-black" id="user-father-phone">-</p>
+                            </div>
                         </div>
                         <div class="mt-6">
-                            <p class="font-medium text-xs text-slate-500">Name (Mother)</p>
-                            <p class="font-medium text-lg text-black" id="user-mother-name">Donna Ningrum</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="font-medium text-xs text-slate-500">NIK (Mother)</p>
-                            <p class="font-medium text-lg text-black" id="user-mother-nik">123456789</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="font-medium text-xs text-slate-500">Phone Number (Mother)</p>
-                            <p class="font-medium text-lg text-black" id="user-mother-phone">081234567890</p>
+                            <div class="flex items-center gap-2 mb-2">
+                                <p class="font-bold text-sm text-unesa">Mother Information</p>
+                                <button id="btn-add-mother"
+                                    class="hidden bg-unesa py-1 px-3 font-bold text-white text-xs shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                                    add
+                                </button>
+                            </div>
+                            <div class="">
+                                <p class="font-medium text-xs text-slate-500">Name (Mother)</p>
+                                <p class="font-medium text-lg text-black" id="user-mother-name">-</p>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-medium text-xs text-slate-500">NIK (Mother)</p>
+                                <p class="font-medium text-lg text-black" id="user-mother-nik">-</p>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-medium text-xs text-slate-500">Phone Number (Mother)</p>
+                                <p class="font-medium text-lg text-black" id="user-mother-phone">-</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-6 flex justify-end items-center gap-4">
-                    <button
-                        class="bg-white py-2 px-6 font-bold text-unesa text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
-                        Print Card
-                    </button>
-                    <button
+                <div class="mt-8 flex flex-col justify-between items-center gap-4 sm:flex-row">
+                    <button id="btn-change-pass"
                         class="bg-unesa py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
-                        Edit Profile
+                        <div class="flex gap-2 justify-center items-center">
+                            <p>Change Pass</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2h1m-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3Z" />
+                            </svg>
+                        </div>
+
                     </button>
+                    <div class="flex justify-center items-center gap-4">
+                        <button id="btn-print-card"
+                            class="bg-white py-2 px-6 font-bold text-unesa text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                            Print Card
+                        </button>
+                        <button id="btn-edit-profile"
+                            class="bg-unesa py-2 px-6 font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] border rounded-lg border-unesa">
+                            Edit Profile
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Bagian form edit profile START -->
+    <dialog
+        class="w-[48.75rem] focus:outline-none backdrop:bg-backdrop backdrop:backdrop-blur-sm rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]"
+        id="dialog-edit-profile">
+        <form class="bg-unesa py-4 px-8 flex justify-between items-center">
+            <p class="text-white text-lg font-bold">Edit Profile</p>
+            <button class="outline-none bg-none" value="cancel" formmethod="dialog">
+                <svg class="fill-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg>
+            </button>
+        </form>
+
+        <!-- @  BAGIAN MENGISI DATA EDIT START -->
+        <form class="bg-white py-6 px-8" id="form-edit-profile">
+            <div>
+                <p class="font-bold text-sm text-unesa mb-1">Personal Information</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                    <div>
+                        <p class="mb-1 text-xs text-gray-500 line-clamp-1">First Name
+                            <span class="text-xs text-red-600">*</span>
+                        </p>
+                        <input
+                            class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                            type="text" placeholder="First Name" id="edit-first-name" />
+                        <small class="break-words text-red-600"></small>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-xs text-gray-500 line-clamp-1">Last Name
+                            <span class="text-xs text-red-600">*</span>
+                        </p>
+                        <input
+                            class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                            type="text" placeholder="Last Name" id="edit-last-name" />
+                        <small class="break-words text-red-600"></small>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <p class="mb-1 text-xs text-gray-500 line-clamp-1">Phone Number
+                        <span class="text-xs text-red-600">*</span>
+                    </p>
+                    <input
+                        class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                        type="number" placeholder="Phone Number" id="edit-phone" />
+                    <small class="break-words text-red-600"></small>
+
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p class="font-bold text-sm text-unesa mb-1">Parent Phone Number</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                    <div>
+                        <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father Phone Number
+                            <span class="text-xs text-red-600">*</span>
+                        </p>
+                        <input
+                            class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                            type="text" placeholder="Father Phone Number" id="edit-father-phone" />
+                        <small class="break-words text-red-600"></small>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother Phone Number
+                            <span class="text-xs text-red-600">*</span>
+                        </p>
+                        <input
+                            class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                            type="text" placeholder="Mother Phone Number" id="edit-mother-phone" />
+                        <small class="break-words text-red-600"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-14">
+                <button
+                    class="w-full py-2 px-6 bg-unesa font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    type="submit">Edit</button>
+            </div>
+        </form>
+        <!-- @  BAGIAN MENGISI DATA EDIT END -->
+    </dialog>
+    <!-- Bagian form edit profile END -->
+
+    <!-- Bagian form ADD FATHER START -->
+    <dialog
+        class="w-[48.75rem] focus:outline-none backdrop:bg-backdrop backdrop:backdrop-blur-sm rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]"
+        id="dialog-add-father">
+        <form class="bg-unesa py-4 px-8 flex justify-between items-center">
+            <p class="text-white text-lg font-bold">Add Father</p>
+            <button class="outline-none bg-none" value="cancel" formmethod="dialog">
+                <svg class="fill-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg>
+            </button>
+        </form>
+
+        <!-- @  BAGIAN MENGISI DATA EDIT START -->
+        <form class="bg-white py-6 px-8" id="form-add-father">
+
+            <p class="font-bold text-sm text-unesa mb-1">Father Information</p>
+            <div class="">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father NIK
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="number" placeholder="Father NIK" id="add-father-nik" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="mt-2">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father Name
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="text" placeholder="Father Name" id="add-father-name" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="mt-2">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Father Phone Number
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="number" placeholder="Father Phone Number" id="add-father-phone" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="flex justify-center mt-14">
+                <button
+                    class="w-full py-2 px-6 bg-unesa font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    type="submit">Add</button>
+            </div>
+        </form>
+        <!-- @  BAGIAN MENGISI DATA EDIT END -->
+    </dialog>
+    <!-- Bagian form ADD FATHER END -->
+
+    <!-- Bagian form ADD MOTHER START -->
+    <dialog
+        class="w-[48.75rem] focus:outline-none backdrop:bg-backdrop backdrop:backdrop-blur-sm rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]"
+        id="dialog-add-mother">
+        <form class="bg-unesa py-4 px-8 flex justify-between items-center">
+            <p class="text-white text-lg font-bold">Add Mother</p>
+            <button class="outline-none bg-none" value="cancel" formmethod="dialog">
+                <svg class="fill-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg>
+            </button>
+        </form>
+
+        <!-- @  BAGIAN MENGISI DATA EDIT START -->
+        <form class="bg-white py-6 px-8" id="form-add-mother">
+
+            <p class="font-bold text-sm text-unesa mb-1">Mother Information</p>
+            <div class="">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother NIK
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="number" placeholder="Mother NIK" id="add-mother-nik" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="mt-2">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother Name
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="text" placeholder="Mother Name" id="add-mother-name" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="mt-2">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Mother Phone Number
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <input
+                    class="w-full p-2 border border-slate-400 rounded-lg font-medium placeholder:text-sm shadow-inner"
+                    type="number" placeholder="Mother Phone Number" id="add-mother-phone" />
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="flex justify-center mt-14">
+                <button
+                    class="w-full py-2 px-6 bg-unesa font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    type="submit">Add Mother</button>
+            </div>
+        </form>
+        <!-- @  BAGIAN MENGISI DATA EDIT END -->
+    </dialog>
+    <!-- Bagian form ADD MOTHER END -->
+
+    <!-- Bagian form CHANGE PASS START -->
+    <dialog
+        class="w-[48.75rem] focus:outline-none backdrop:bg-backdrop backdrop:backdrop-blur-sm rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]"
+        id="dialog-change-pass">
+        <form class="bg-unesa py-4 px-8 flex justify-between items-center">
+            <p class="text-white text-lg font-bold">Change Password</p>
+            <button class="outline-none bg-none" value="cancel" formmethod="dialog">
+                <svg class="fill-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+                </svg>
+            </button>
+        </form>
+
+        <!-- @  BAGIAN MENGISI DATA EDIT START -->
+        <form class="bg-white py-6 px-8" id="form-change-pass">
+            <div class="">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">Old Password
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <div class="flex justify-center items-center">
+                    <input
+                        class="w-full p-2 border border-r-0 border-slate-400 rounded-l-lg font-medium placeholder:text-sm shadow-inner"
+                        type="password" placeholder="Old Password" id="old-pass" />
+                    <div class="flex border border-l-0 border-slate-400 rounded-r-lg justify-center items-center py-2 px-3"
+                        id="toggle-old-pass">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="currentColor">
+                                <path d="M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z" />
+                                <path fill-rule="evenodd"
+                                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69c.12.362.12.752 0 1.113c-1.487 4.471-5.705 7.697-10.677 7.697c-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0a5.25 5.25 0 0 1 10.5 0Z"
+                                    clip-rule="evenodd" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="mt-2">
+                <p class="mb-1 text-xs text-gray-500 line-clamp-1">New Password
+                    <span class="text-xs text-red-600">*</span>
+                </p>
+                <div class="flex justify-center items-center">
+                    <input
+                        class="w-full p-2 border border-r-0 border-slate-400 rounded-l-lg font-medium placeholder:text-sm shadow-inner"
+                        type="password" placeholder="New Password" id="new-pass" />
+                    <div class="flex border border-l-0 border-slate-400 rounded-r-lg justify-center items-center py-2 px-3"
+                        id="toggle-new-pass">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="currentColor">
+                                <path d="M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z" />
+                                <path fill-rule="evenodd"
+                                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69c.12.362.12.752 0 1.113c-1.487 4.471-5.705 7.697-10.677 7.697c-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0a5.25 5.25 0 0 1 10.5 0Z"
+                                    clip-rule="evenodd" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <small class="break-words text-red-600"></small>
+            </div>
+            <div class="flex justify-center mt-14">
+                <button
+                    class="w-full py-2 px-6 bg-unesa font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    type="submit">Change</button>
+            </div>
+        </form>
+        <!-- @  BAGIAN MENGISI DATA EDIT END -->
+    </dialog>
+    <!-- Bagian form ADD FATHER END -->
+
+
+    <!-- Bagian Konfirmasi Ulang START -->
+    <dialog
+        class="w-[22rem] h-[12rem] py-4 px-8 focus:outline-none backdrop:bg-none backdrop:backdrop-blur-sm rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]"
+        id="dialog-confirmation">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <p class="text-black text-xl font-bold text-center" id="confirm-text">Are you sure want to edit these data?
+            </p>
+            <div class="mt-4 py-4 px-8 flex justify-between items-center gap-4">
+                <button
+                    class="w-full py-2 px-6 bg-white border border-unesa font-bold text-unesa text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    id="not-confirm">
+                    no
+                </button>
+                <button
+                    class="w-full py-2 px-6 bg-unesa font-bold text-white text-base shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg"
+                    id="confirm">
+                    Yes
+                </button>
+
+            </div>
+        </div>
+        <!-- @  BAGIAN MENGISI DATA EDIT END -->
+    </dialog>
+    <!-- Bagian Konfirmasi Ulang END -->
+
+
+    <!-- FOR LOADING SCREEN WHEN FETCHING AN API PURPOSE -->
+    <dialog id="loading-screen"
+        class="w-40 h-40 rounded-xl bg-white backdrop:bg-backdrop overflow-hidden focus:outline-none">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <div class="w-20 h-20 border-8 rounded-full border-t-unesa animate-loading-screen"></div>
+            <p class="mt-2 font-medium">Please wait...</p>
+        </div>
+    </dialog>
     <br>
 </body>
 

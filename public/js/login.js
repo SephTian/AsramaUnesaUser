@@ -2,6 +2,8 @@ import { fetchApi } from "./utility/fetch.js";
 
 const LOGIN_BTN = document.querySelector("#login-btn");
 const LOGIN_FORM = document.querySelector("#login-form");
+let user_data = JSON.parse(window.sessionStorage.getItem("user-data"));
+
 LOGIN_FORM.addEventListener("submit", async (e) => {
   e.preventDefault();
   const username = document.querySelector("#username");
@@ -9,7 +11,7 @@ LOGIN_FORM.addEventListener("submit", async (e) => {
 
   // Make login btn disabled cause loading to fetch and api
   const BUTTON_ON_LOAD = document.createElement("div");
-  BUTTON_ON_LOAD.className = "w-6 h-6 border-4 border-gray-500 border-t-white border-r-white rounded-full animate-spin ease-in duration-300";
+  BUTTON_ON_LOAD.className = "w-6 h-6 border-4 border-gray-500 border-t-white rounded-full animate-loading-btn";
   LOGIN_BTN.textContent = "";
   LOGIN_BTN.appendChild(BUTTON_ON_LOAD);
   LOGIN_BTN.disabled = true;
@@ -58,13 +60,21 @@ LOGIN_FORM.addEventListener("submit", async (e) => {
     //Assign Data to Session And Redirect to news page
     let user_temp_data = {
       user_id: result.data.user_id,
-      user_name: result.data.user_name,
+      user_first_name: result.data.first_name,
+      user_last_name: result.data.last_name,
       user_role: result.data.role_id,
       user_gender: result.data.gender_id,
+    };
+
+    let user_notif = {
+      opened: 0,
+      last_unread: 0,
+      current_unread: 0,
     };
     sessionStorage.clear();
     sessionStorage.setItem("token", result.data.Token);
     sessionStorage.setItem("user-data", JSON.stringify(user_temp_data));
+    sessionStorage.setItem("user-notif", JSON.stringify(user_notif));
     window.location.href = "news.html";
   }
 });

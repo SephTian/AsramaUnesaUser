@@ -16,7 +16,10 @@ document.querySelector("#building-name").textContent = booking_data.building_nam
 
 // ? Fetch disini
 const ROOM_DATA = await fetchApi(`getRooms?building_reference_id=${booking_data.building_id}`);
-console.log(ROOM_DATA);
+
+if (ROOM_DATA != null) {
+  sortByFloor(ROOM_DATA);
+}
 
 // FILTER LANTAI PADA GEDUNG SEKARANG
 let FLOOR_DATA = [];
@@ -50,6 +53,12 @@ FLOOR_FILTER.addEventListener("change", (e) => {
   showFloor(ROOM_DATA);
 });
 
+function sortByFloor(arr) {
+  arr.sort((a, b) => {
+    return a.room_floor - b.room_floor;
+  });
+}
+
 function showFloor(data = []) {
   FLOOR_LIST.textContent = "";
 
@@ -81,7 +90,6 @@ function showRoom(data = [], filter_ = "") {
   data = data.filter((item) => {
     return item.room_floor === parseInt(filter_);
   });
-  console.log(data);
 
   //Membuat Details Floornya Terlebih Dahulu
   const FLOOR_DETAILS = document.createElement("details");
@@ -95,6 +103,7 @@ function showRoom(data = [], filter_ = "") {
       </div>      
   `;
 
+  console.log(data);
   //Menampilkan room sesuai floor
   const CURRENT_ROOM_LIST = FLOOR_DETAILS.querySelector(`#room-list${data[0].room_floor}`);
   data.forEach((item) => {
@@ -102,9 +111,9 @@ function showRoom(data = [], filter_ = "") {
     const ROOM_DIV = document.createElement("div");
     ROOM_DIV.className = `p-2 flex justify-between items-center bg-white border border-slate-500 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-xl ${LEFT_CAPACITY > 0 ? `cursor-pointer` : ``}`;
     ROOM_DIV.innerHTML = `
-      <div class="flex flex-col items-start">
+      <div class="flex flex-col justify-start items-start">
           <div class="flex gap-1 items-center">
-              <p class="text-unesa text-xl font-semibold line-clamp-1">${item.room_name}</p>
+              <div class="text-unesa text-xl font-semibold text-start break-all line-clamp-1">${item.room_name}</div>
               ${
                 booking_data.building_gender == "Perempuan"
                   ? `
@@ -125,7 +134,7 @@ function showRoom(data = [], filter_ = "") {
           <p id="w-fit text-lg font-medium">${item.room_floor} Floor</p>
       </div>
       <div class="flex items-center gap-3">
-          <p class="font-bold text-black text-xl"> ${item.room_occupants} / ${item.room_capacity}
+          <p class="font-bold text-black text-xl w-[60px]"> ${item.room_occupants} / ${item.room_capacity}
           </p>
           <div class="w-4 h-4 rounded-full ${LEFT_CAPACITY == 0 ? `bg-red-700` : LEFT_CAPACITY <= item.room_capacity / 2 ? `bg-orange-700` : `bg-green-700`}">
           </div>
@@ -137,7 +146,7 @@ function showRoom(data = [], filter_ = "") {
       ROOM_DIV.addEventListener("click", () => {
         booking_data.room_id = item.room_id;
         booking_data.room_name = item.room_name;
-        booking_data.room_price = "500000";
+        booking_data.room_price = item.room_price;
 
         console.log(booking_data);
         window.sessionStorage.setItem("booking-data", JSON.stringify(booking_data));

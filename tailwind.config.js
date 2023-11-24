@@ -14,7 +14,8 @@ module.exports = {
         montserrat: ["Montserrat"],
       },
       animation: {
-        drop: "drop 0.5s linear",
+        "loading-screen": "spin 2s ease-in-out infinite",
+        "loading-btn": "spin 1.5s ease-in-out infinite",
       },
       keyframes: {
         drop: {

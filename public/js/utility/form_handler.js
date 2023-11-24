@@ -26,3 +26,50 @@ export function inputValidation(assoc_array, true_count) {
     return false;
   }
 }
+
+export function inputWarning(type_input = "string", input_object, minimum_char = 0, warning_msg_empty = "", warning_msg_not_empty = "", need_parent = false) {
+  let obj_e = "";
+  if (need_parent) {
+    obj_e = input_object.parentElement;
+  } else if (!need_parent) {
+    obj_e = input_object;
+  }
+
+  const OBJECT_VALUE = input_object.value;
+  // Kalau mau input nya string
+  if (type_input === "string") {
+    if (OBJECT_VALUE.trim() === "") {
+      setErrorMsg(obj_e, warning_msg_empty);
+      return false;
+    } else if (OBJECT_VALUE.trim().length < minimum_char) {
+      setErrorMsg(obj_e, warning_msg_not_empty);
+      return false;
+    } else {
+      setSuccessMsg(obj_e);
+      return true;
+    }
+
+    // Kalau mau input nya number
+  } else if (type_input === "number") {
+    if (OBJECT_VALUE.toString() === "") {
+      setErrorMsg(obj_e, warning_msg_empty);
+      return false;
+    } else if (OBJECT_VALUE.toString().length < minimum_char) {
+      setErrorMsg(obj_e, warning_msg_not_empty);
+      return false;
+    } else {
+      setSuccessMsg(obj_e);
+      return true;
+    }
+
+    // kalau mau inputnya yang simple simple aja a Bolehhh
+  } else if (type_input === "simple") {
+    if (OBJECT_VALUE.toString() === "") {
+      setErrorMsg(obj_e, warning_msg_empty);
+      return false;
+    } else {
+      setSuccessMsg(obj_e);
+      return true;
+    }
+  }
+}
